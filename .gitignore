@@ -1,0 +1,30 @@
+# Byte-compiled / cache files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+venv/
+env/
+
+# Secret key or sensitive config files
+*.key
+secret.key
+
+# Encrypted and decrypted files
+/uploads/*.enc
+/uploads/decrypted_*
+
+# Flask log/debug files
+*.log
+
+# System files
+.DS_Store
+Thumbs.db
+
+# VSCode or IDE settings
+.vscode/
+.idea/
+
+# Python dependency files (optional if auto-generated)
+*.egg-info/

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Secure File Sharing System</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+</head>
+
+<body class="bg-dark text-light">
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">🔐 Secure File Sharing System</h2>
+
+        <!-- Upload Form -->
+        <form action="/upload" method="post" enctype="multipart/form-data" class="mb-4">
+            <div class="mb-3">
+                <label for="file" class="form-label">Upload File</label>
+                <input type="file" name="file" class="form-control" required>
+            </div>
+            <button type="submit" class="btn btn-primary">Encrypt & Upload</button>
+        </form>
+
+        <!-- Download Section -->
+        <h5 class="mt-5">📥 Download Encrypted File</h5>
+        <p>To download a file, enter the encrypted file name (including `.enc`):</p>
+        <form action="/download" method="get"
+            onsubmit="event.preventDefault(); window.location.href='/download/' + document.getElementById('filename').value;">
+            <div class="input-group">
+                <input type="text" id="filename" name="filename" class="form-control" placeholder="e.g., report.pdf.enc"
+                    required>
+                <button type="submit" class="btn btn-success">Download & Decrypt</button>
+            </div>
+        </form>
+
+        <!-- Flash messages -->
+        {% with messages = get_flashed_messages() %}
+        {% if messages %}
+        <div class="alert alert-info mt-4">
+            {% for message in messages %}
+            <p>{{ message }}</p>
+            {% endfor %}
+        </div>
+        {% endif %}
+        {% endwith %}
+    </div>
+</body>
+
+</html>
