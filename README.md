@@ -64,30 +64,51 @@ secure-file-sharing/
    git clone https://github.com/your-username/secure-file-sharing.git
    cd secure-file-sharing
     ```
-Create a virtual environment (optional but recommended)
+**Create a virtual environment (optional but recommended)**
 
 ```bash
 python -m venv venv
 venv\Scripts\activate      # Windows
 # OR
 source venv/bin/activate   # Linux/macOS
-Install dependencies
+```
 
-bash
-Copy
-Edit
+**Install dependencies**
+
+```bash
 pip install -r requirements.txt
-Generate encryption key
+```
 
-bash
-Copy
-Edit
+**Generate encryption key**
+
+```bash
 python -c "from encrypt_utils import generate_key; generate_key()"
-Run the Flask app
+```
 
-bash
-Copy
-Edit
+**Run the Flask app**
+
+```bash
 python app.py
-Open your browser and visit:
+```
+
+**Open your browser and visit :**
 http://127.0.0.1:5000
+
+## 📷 Screenshots
+
+![SS](venv/Screenshot.png)
+
+### ✅ Notes
+
+* All uploaded files are stored as .enc encrypted files in /uploads/.
+
+* During download, decryption is performed in real-time before sending to user.
+
+* secret.key should be stored securely and never pushed to GitHub.
+
+--- 
+
+### 🧾 Conclusion
+
+This project simulates a basic but practical secure file sharing mechanism. It showcases encryption, secure handling of user files, and web integration — reflecting real-world cybersecurity and secure DevOps practices.
+
